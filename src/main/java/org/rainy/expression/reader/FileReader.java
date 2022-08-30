@@ -1,7 +1,7 @@
 package org.rainy.expression.reader;
 
-import com.rainy.expression.ExpressionException;
-import com.rainy.expression.common.Cacheable;
+import org.rainy.expression.ExpressionException;
+import org.rainy.expression.common.Cacheable;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -24,7 +24,7 @@ public class FileReader implements Reader {
     @Override
     public List<Map<String, String>> read() {
         try {
-            final Path filePath = Paths.get("D:\\my\\_\\src\\com\\rainy\\expression\\20123919_RYRY_291230120312.txt");
+            final Path filePath = Paths.get("D:\\my\\expression\\src\\main\\java\\org\\rainy\\expression\\20123919_RYRY_291230120312.txt");
             Stream<String> lines = Files.lines(filePath);
             String dataType = getDataType(filePath);
             return lines.map(line -> {
