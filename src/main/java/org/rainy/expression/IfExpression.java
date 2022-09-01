@@ -37,6 +37,9 @@ public class IfExpression implements Expression {
 
     @Override
     public boolean interpret(Map<String, String> stats) {
-        return !conditionExpression.interpret(stats) || expression.interpret(stats);
+        if (conditionExpression.interpret(stats)) {
+            return expression.interpret(stats);
+        }
+        return true;
     }
 }
