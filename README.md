@@ -13,7 +13,7 @@
 List<Map<String, String>> data = new FileReader().read();
 for (Map<String, String> datum : data) {
     for (Map.Entry<String, String> entry : datum.entrySet()) {
-        // Cacheable用来缓存数据字段与表达式之间的映射关系，可以保存在数据库中
+        // 根据字段名称获取对应的表达式。（可以在数据库中建立映射关系）
         String ruleExpression = Cacheable.fieldExpressionMap.get(entry.getKey());
         if (ruleExpression == null) {
             continue;
