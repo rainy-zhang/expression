@@ -1,4 +1,4 @@
-package org.rainy.expression;
+package org.rainy.expression.expression;
 
 import java.util.Map;
 import java.util.Objects;
@@ -10,10 +10,12 @@ import java.util.Objects;
  */
 public class LessExpression implements Expression {
 
-    private final EqualsExpression equalsExpression;
+    private final String key1;
+    private final String key2;
 
-    public LessExpression(EqualsExpression equalsExpression) {
-        this.equalsExpression = equalsExpression;
+    public LessExpression(String key1, String key2) {
+        this.key1 = key1;
+        this.key2 = key2;
     }
 
     public LessExpression(String ruleExpression) {
@@ -22,12 +24,19 @@ public class LessExpression implements Expression {
         if (elements.length != 3 || !Objects.equals(elements[1], ExpressionEnum.LESS.getSeparator())) {
             throw new ExpressionException("【<】表达式格式错误");
         }
-        equalsExpression = new EqualsExpression(ruleExpression.replaceAll("!", ""));
+        key1 = elements[0];
+        key2 = elements[2];
     }
 
     @Override
     public boolean interpret(Map<String, String> stats) {
         Objects.requireNonNull(stats);
-        return !equalsExpression.interpret(stats);
+        if (stats.containsKey(key1)) {
+            return Integer.parseInt(stats.get(key1)) < Integer.parseInt(key2);
+        }
+        if (stats.containsKey(key2)) {
+            return Integer.parseInt(stats.get(key2)) < Integer.parseInt(key1);
+        }
+        return false;
     }
 }

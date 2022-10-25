@@ -15,10 +15,14 @@ public class Cacheable {
     public static Map<String, String> fieldExpressionMap = new HashMap<>();
     public static Map<String, List<String>> fieldNameMap = new HashMap<>();
     static {
-        fieldExpressionMap.put("state", "'' != state");
-        fieldExpressionMap.put("time", "if[state != 2]{ time != ''}");
+        fieldExpressionMap.put("workerCode","'' != workerCode AND workerCode.length = 20");
+        fieldExpressionMap.put("name", "name != ''");
+        fieldExpressionMap.put("age", "age > 0 AND age < 100");
+        fieldExpressionMap.put("gender", "gender.length = 1");
+        fieldExpressionMap.put("birthDay", "birthDay != ''");
+        fieldExpressionMap.put("state", "'' != state AND state IN 1,2");
 
-        fieldNameMap.put("RYRY", Arrays.asList("state", "time"));//, "age", "job", "department"));
+        fieldNameMap.put("RYRY", Arrays.asList("workerCode", "name", "age", "gender", "birthDay", "state"));
     }
 
 }

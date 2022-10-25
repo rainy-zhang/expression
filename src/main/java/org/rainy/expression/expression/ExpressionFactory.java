@@ -1,4 +1,4 @@
-package org.rainy.expression;
+package org.rainy.expression.expression;
 
 import java.util.Objects;
 
@@ -18,9 +18,9 @@ public class ExpressionFactory {
             return new TrueExpression();
         } else if (ruleExpression.toLowerCase().equals(ExpressionEnum.FALSE.getSeparator())) {
             return new FalseExpression();
-        } else if (elements[0].split("\\.")[0].toLowerCase().equals(ExpressionEnum.LENGTH.getSeparator())) {
+        } else if (elements[0].contains(ExpressionEnum.LENGTH.getSeparator())) {
             return new LengthExpression(ruleExpression);
-        } else if (elements[0].split("\\.")[0].toLowerCase().equals(ExpressionEnum.PATTERN.getSeparator())) {
+        } else if (elements[0].contains(ExpressionEnum.PATTERN.getSeparator())) {
             return new PatternExpression(ruleExpression);
         } else if (elements[1].equals(ExpressionEnum.GREATER_EQUALS.getSeparator())) {
             return new GreaterEqualsExpression(ruleExpression);

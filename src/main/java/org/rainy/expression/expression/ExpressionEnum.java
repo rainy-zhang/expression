@@ -1,4 +1,4 @@
-package org.rainy.expression;
+package org.rainy.expression.expression;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,17 +18,17 @@ public enum ExpressionEnum {
     LESS_EQUALS("<=", "小于等于"),
     EQUALS("=", "等于"),
     NOT_EQUALS("!=", "不等于"),
-    IN("in", "in"),
-    NOT_IN("!in", "not in"),
-    AND("and", "与"),
-    OR("or", "或"),
+    IN("IN", "in"),
+    NOT_IN("!IN", "not in"),
+    AND("AND", "与"),
+    OR("OR", "或"),
     BRACKET_OPEN("(", "左括号"),
     BRACKET_CLOSE(")", "右括号"),
-    TRUE("true", "真"),
-    FALSE("false", "假"),
+    TRUE("TRUE", "真"),
+    FALSE("FALSE", "假"),
     LENGTH(".length", "长度"),
     PATTERN(".pattern", "正则"),
-    IF("if", "如果"),
+    IF("IF", "如果"),
     ;
 
     private final String separator;

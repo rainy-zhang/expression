@@ -1,4 +1,4 @@
-package org.rainy.expression;
+package org.rainy.expression.expression;
 
 /**
  * @Description: 表达式解析异常
